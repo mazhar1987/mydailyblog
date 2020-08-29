@@ -1,0 +1,21 @@
+
+<%- include("partials/header"); -%>
+    <h1 class="pb-4 mb-4 border-bottom display-4">Posts Page</h1>
+
+    <% if (posts.length !== 0) { %> 
+        <% posts.forEach(function(post){ %>
+            <div class="blog-post mb-5">
+                <h2 class="blog-post-title"><%=post.title%></h2>
+                <p>
+                    <%=post.content.substring(0, 200) + " ..."%>
+                    <a href="/posts/<%=post._id%>">Read More</a>
+                </p>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <h2>404 Not Found!</h2>
+        <p>Click Add New Post button</p>
+    <% } %>
+
+
+<%- include("partials/footer"); -%>
